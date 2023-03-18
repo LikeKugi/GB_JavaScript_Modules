@@ -64,7 +64,6 @@ export class Timer {
   }
 
   startTimer() {
-    console.log(DateTime.fromISO());
     this.startTime = this.getCurrentTime();
     if (this.#timerID) clearInterval(this.#timerID);
     this.#timerID = setInterval(this.renderTimer.bind(this), 100);
@@ -72,13 +71,10 @@ export class Timer {
 
   countInterval() {
     let currentTime = this.getCurrentTime();
-    console.log(currentTime - this.startTime);
     return currentTime.diff(this.startTime).toFormat("hh:mm:ss:S");
   }
 
   resetInterval() {
-    console.log("reseting");
-    console.log(this.#timerID);
     clearInterval(this.#timerID);
   }
 
